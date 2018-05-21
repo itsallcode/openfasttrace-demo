@@ -79,7 +79,7 @@ Each ID consists of three parts:
 Note that all parts are mandatory for an ID. The artifact type is used to tell requirement IDs in different documents and other sources apart. IDs are only guaranteed to be unique if you take all three parts into account. For example it is perfectly fine to have an ID `req~foobar~1` in a requirement specification and a `dsn~foobar~1` in the according design document. In fact this is a very common case. 
 
 ### Requirements in OFT
-Let's have a look at the OFT system requirement specification to get an idea of context we use those IDs in.
+Let's have a look at the OFT system [requirement specification](https://github.com/itsallcode/openfasttrace/blob/develop/doc/system_requirements.md) to get an idea of context we use those IDs in.
 
 ```bash
 grep -B 1 -A 33 'req~specification-item~' doc/system_requirements.md
@@ -97,7 +97,7 @@ This requirement states that it wants to be covered by a design.
 In OFT we mostly talk about "Specification Item" which are a superset of requirements. The reason for this is that we want to treat markers in the code in the same way as requirements in a document when it comes to tracing. We will see what that means in a few minutes.
 
 ### Links to the Design
-You saw that the requirement in the system specification requires coverage in a design document. The easiest way for us to find this coverage - apart from using OFT - is to use a simple text search.
+You saw that the requirement in the system specification requires coverage in a [design document](https://github.com/itsallcode/openfasttrace/blob/develop/doc/design.md). The easiest way for us to find this coverage - apart from using OFT - is to use a simple text search.
 
 ```bash
 grep -n 'req~specification-item~' doc/design.md
