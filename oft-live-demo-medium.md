@@ -9,7 +9,9 @@ The following software is needed to prepare and run this live demonstration
 * maven
 * Java 8 JRE (or JDK)
 * GNU grep
+* GNU sort
 * GNU sed
+* GNU uniq
 * Text editor (e.g. vi)
 
 #### On Debian / Ubuntu
@@ -49,17 +51,35 @@ Choosing a specific version is important to avoid surprises during the presentat
 ## Holding the Live Demonstration
 The following sections contain a suggestion of what you can tell people interested in OFT about the project and what it is good for. As with every presentation it is better to memorize the general sequence instead of the wording. You are not reciting a poem, feel free to use your own words!
 
+*("Stage directions" are written in parenthesis and italics.)*
+
 ## Live Demo
 
 ### What is OFT?
-OpenFastTrace is a requirement tracing suite. Simply put requirement tracing makes sure that you don't forget stuff in your software project. That means that if you use OFT, you should neither run into a situation where you have to explain to your customers why you forgot to implement a feature. 
+OpenFastTrace is a requirement tracing suite. Simply put requirement tracing makes sure that you don't forget stuff in your software project. That means that if you use OFT, you will not run into a situation where you have to explain to your customers why you forgot to implement a feature. 
 
-On the other hand OFT will tell you if there is code in your project where the original requirement has long since been rejected, allowing you to clean up your code base and thus keep it maintainable and more secure.
+On the other hand OFT will tell you if there is code in your project where the original requirement has since been rejected, allowing you to clean up your code base and thus keep it maintainable and more secure.
 
 OFT achieves this by crawling your specification documents and code and correlating them with the help of special IDs.
 
+### Requirement IDs
+
+The following command produces a list of all requirement ID from OFT's feature list.
+
+```bash
+grep -Proh 'feat~.*?~[0-9]+' doc/system_requirements.md | sort | uniq
+```
+
+Each ID consists of three parts:
+
+1. Artifact type
+2. Name or Number
+3. Revision
+
+Note that all parts are mandatory for an ID. The artifact type is used to tell requirement IDs in different documents and other sources apart. IDs are only guaranteed to be unique if you take all three parts into account. For example it is perfectly fine to have an ID `req~foobar~1` in a requirement specification and a `dsn~foobar~1` in the according design document. In fact this is a very common case. 
+
 ### Requirements in OFT
-Let's have a look at the OFT system requirement specification to get an idea of how those ID look and in what context we use them.
+Let's have a look at the OFT system requirement specification to get an idea of context we use those IDs in.
 
 ```bash
 grep -B 1 -A 33 'req~specification-item~' doc/system_requirements.md
