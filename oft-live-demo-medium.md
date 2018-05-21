@@ -21,20 +21,30 @@ sudo apt install openjdk-8-jre vim libxml2-utils
 ### Preparing the Directory That Contains OpenFastTrace
 Run the following preparation ahead of your presentation so that you can dive in right away.
 
+Set the necessary environment variables first. They are also needed in case you return later to a already set-up demonstration.
+
 ```bash
-version='0.5.3'
-demodir="$HOME/tmp/openfasttrace-demo-medium"
+version='0.5.4'
+project='openfasttrace'
+demodir="$HOME/tmp/$project-demo-medium"
+projectdir="$demodir/$project"
+alias oft="java -jar $projectdir/target/$project-$version.jar"
+```
+
+Now clone the project for the demonstration.
+
+```bash
 mkdir -p "$demodir"
 cd "$demodir"
-git clone -b "$version" https://github.com/itsallcode/openfasttrace
-cd openfastrace
+git clone -b "$version" "https://github.com/itsallcode/$project"
+cd "$projectdir"
 mvn package
-alias oft="java -jar $demodir/openfasttrace/target/openfasttrace-$version.jar"
 ```
 
 After that you will have a clone of the OFT repository in a specific version detached-head-mode.
 
 Choosing a specific version is important to avoid surprises during the presentation in case OFT's behavior changed since this live demo script was written.
+
 
 ## Holding the Live Demonstration
 The following sections contain a suggestion of what you can tell people interested in OFT about the project and what it is good for. As with every presentation it is better to memorize the general sequence instead of the wording. You are not reciting a poem, feel free to use your own words!
