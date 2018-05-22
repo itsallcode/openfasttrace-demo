@@ -13,17 +13,18 @@ The following software is needed to prepare and run this live demonstration
 * GNU sed
 * GNU uniq
 * Text editor (e.g. vi)
+* xmllint (optional)
 
 #### On Debian / Ubuntu
 
 ```bash
-sudo apt install openjdk-8-jre vim libxml2-utils
+sudo apt install bash corutils grep maven openjdk-8-jre vim libxml2-utils
 ```
 
 ### Preparing the Directory That Contains OpenFastTrace
 Run the following preparation ahead of your presentation so that you can dive in right away.
 
-Set the necessary environment variables first. They are also needed in case you return later to a already set-up demonstration.
+Set the necessary environment variables first. They are also needed in case you return later to an already set-up demonstration.
 
 ```bash
 version='0.5.4'
@@ -64,7 +65,7 @@ OFT achieves this by crawling your specification documents and code and correlat
 
 ### Requirement IDs
 
-The following command produces a list of all requirement ID from OFT's feature list.
+The following command produces a list of all requirement IDs from OFT's feature list.
 
 ```bash
 grep -Proh 'feat~.*?~[0-9]+' doc/system_requirements.md | sort | uniq
@@ -200,7 +201,7 @@ And if we want to find a specific requirement in that trace?
 oft trace -v ALL doc src/main/java src/test/java | grep '^[^|].*req~tracing.deep-coverage~1'
 ```
 
-One of the reasons OFT features a plain text report and has a command line interface is that this combination is ideal for chaining OFT with other populare command line tools like `grep`.
+One of the reasons OFT features a plain text report and has a command line interface is that this combination is ideal for chaining OFT with other popular command line tools like `grep`.
 
 Even if OFT tried, it could never cover all use cases that you might come up with in your real world project. Instead of trying to be the jack of all trades OFT focuses on being easy to integrate with other tools.
 
@@ -208,10 +209,10 @@ Even if OFT tried, it could never cover all use cases that you might come up wit
 
 Sounds familiar?
 
-Let's take this one step further an filter out a 
+Let's take this one step further and filter a single result including details from the report.
 
 ```bash
-id='req~tracing.deep-coverage~1' && oft trace -v ALL doc src/main/java src/test/java | grep -Pzo 'ok.*'"$id"'.*\n([|].*\n)+'
+id='req~tracing.deep-coverage~1' oft trace -v ALL doc src/main/java src/test/java | grep -Pzo 'ok.*'"$id"'.*\n([|].*\n)+'
 ```
 If you think now: this command is madness - fair enough. The point is that through chaining OFT with other tools you can do things the designers of OFT didn't think of.
 
@@ -237,8 +238,7 @@ vi /tmp/oft_specifications.xml
 ```
 
 ### Which Exchange Formats Does OFT support?
-
-* OFT native (in / out)
+* OFT native: Requirement-enhanced Markdown (in / out)
 * ReqM2 (in / out)
 * OFT code decoration (in)
 * Reqm2 code decoration (in)
@@ -249,7 +249,6 @@ Planned:
 * CSV (out)
 
 ### Where to go From Here?
-
 You can find documentation about OpenFastTrace on GitHub:
 
 * [OpenFastTrace project page](https://github.com/itsallcode/openfasttrace)
