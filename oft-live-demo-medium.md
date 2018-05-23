@@ -2,7 +2,7 @@
 
 ## Preparation
 
-### Precoditions
+### Preconditions
 The following software is needed to prepare and run this live demonstration
 
 * bash
@@ -130,7 +130,7 @@ In this live demonstration we will focus mostly on the tracer since this is the 
 While the converter is undoubtedly useful, it simply converts all its inputs into a specific requirements interchange format.
 
 ### Tracing OFT With Itself
-You might have heard the term "eat your own dogfood". This means that an organization should use its own products in order to share the customer's experience.
+You might have heard the term "eat your own dog food". This means that an organization should use its own products in order to share the customer's experience.
 
 Of course we do this with OpenFastTrace. So lets run a trace over our own sources.
 
