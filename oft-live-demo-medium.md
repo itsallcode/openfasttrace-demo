@@ -191,6 +191,16 @@ As you can see at least from the perspective of the design document. While this 
 ### Controlling the Output
 What if we want to see all specification items in the trace and not only the ones that failed?
 
+OFT offers the following verbosity levels for the plain text report:
+
+* Quiet - use exit code for example as build breaker
+* Minimal - outputs "OK" or "FAIL"
+* Summary - one line summary 
+* Failures - list of IDs of defect items
+* Failure Summaries - one line summary for every defect item
+* Failure Details - detail information about defect items
+* All - details for all items
+
 ```bash
 oft trace -v ALL doc src/main/java src/test/java
 ```
