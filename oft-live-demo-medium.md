@@ -7,18 +7,18 @@ The following software is needed to prepare and run this live demonstration
 
 * bash
 * maven
-* Java 8 JRE (or JDK)
+* Java 8 JDK
 * GNU grep
 * GNU sort
 * GNU sed
 * GNU uniq
 * Text editor (e.g. vi)
-* xmllint (optional)
+* xmllint (optional but recommended)
 
 #### On Debian / Ubuntu
 
 ```bash
-sudo apt install bash corutils grep maven openjdk-8-jre vim libxml2-utils
+sudo apt install bash corutils grep maven openjdk-8-jdk vim libxml2-utils
 ```
 
 ### Preparing the Directory That Contains OpenFastTrace
