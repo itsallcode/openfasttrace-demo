@@ -18,7 +18,7 @@ The following software is needed to prepare and run this live demonstration
 #### On Debian / Ubuntu
 
 ```bash
-sudo apt install bash corutils grep maven openjdk-8-jdk vim libxml2-utils
+sudo apt install bash coreutils grep maven openjdk-8-jdk vim libxml2-utils
 ```
 
 ### Preparing the Directory That Contains OpenFastTrace
