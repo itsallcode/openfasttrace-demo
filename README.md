@@ -1,5 +1,5 @@
 # OpenFastTrace - Demo
-This repository contains a "screenplay" an command scripts for a live demonstration of OpenFastTrace
+This repository contains a "screenplay" and command scripts for a live demonstration of OpenFastTrace
 
 This repository does not contain OpenFastTrace. Check https://github.com/itsallcode/openfasttrace for the main project.
 
