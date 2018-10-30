@@ -29,7 +29,7 @@ Run the following preparation ahead of your presentation so that you can dive in
 Set the necessary environment variables first. They are also needed in case you return later to an already set-up demonstration.
 
 ```bash
-version='2.0.0'
+version='2.0.1'
 project='openfasttrace'
 demodir="$HOME/tmp/$project-$version-demo-medium"
 projectdir="$demodir/$project"
@@ -46,7 +46,7 @@ cd "$projectdir"
 mvn package
 ```
 
-After that you will have a clone of the OFT repository in a specific version detached-head-mode.
+After that you will have a [clone of the OFT repository in a specific version in detached-head-mode](https://git-scm.com/docs/git-clone#git-clone--bltnamegt).
 
 Choosing a specific version is important to avoid surprises during the presentation in case OFT's behavior changed since this live demo script was written.
 
@@ -80,7 +80,7 @@ Each ID consists of three parts:
 2. Name or Number
 3. Revision
 
-Note that all parts are mandatory for an ID. The artifact type is used to tell requirement IDs in different documents and other sources apart. IDs are only guaranteed to be unique if you take all three parts into account. For example it is perfectly fine to have an ID `req~foobar~1` in a requirement specification and a `dsn~foobar~1` in the according design document. In fact this is a very common case. 
+Note that all parts are mandatory for an ID. The artifact type is used to tell requirement IDs in different documents and other sources apart. IDs are only guaranteed to be unique if you take all three parts into account. For example it is perfectly fine to have an ID `req~foobar~1` in a requirement specification and a `dsn~foobar~1` in the corresponding design document. In fact this is a very common case. 
 
 ### Requirements in OFT
 
@@ -92,11 +92,11 @@ grep -B 1 -A 33 'req~specification-item~' doc/system_requirements.md
 
 You see an excerpt of a specification document written in Markdown. More precisely you see a requirement with a title, a requirement ID and a description.
 
-Incidentally I picked a the requirement that defines a "Specification Item".
+Incidentally we picked the requirement that defines a "Specification Item".
 
 *(Go through the fields and explain them shortly to your audience.)*
 
-This requirement states that it wants to be covered by a design.
+This requirement states that it needs to be covered by a design.
 
 ### Specification Items vs. Requirements
 
@@ -104,7 +104,7 @@ In OFT we mostly talk about "Specification Item" which are a superset of require
 
 ### Links to the Design
 
-You saw that the requirement in the system specification requires coverage in a [design document](https://github.com/itsallcode/openfasttrace/blob/develop/doc/design.md). The easiest way for us to find this coverage - apart from using OFT - is to use a simple text search.
+You saw that the requirement in the system specification requires coverage in a [design document](https://github.com/itsallcode/openfasttrace/blob/develop/doc/design.md). The simplest way for us to find this coverage - apart from using OFT - is to use a simple text search.
 
 ```bash
 grep -n 'req~specification-item~' doc/design.md
@@ -119,7 +119,6 @@ grep -B 20 -A 3 'req~specification-item~' doc/design.md
 ### Code Decorations
 
 In order to be able to tell where in your code a requirement is covered, you need to decorate your code with special tags contained in comments.
-
 
 ```
 grep -rnA 3 '~specification-item~' src | sed -e 's/java.*trace/.../'
@@ -136,7 +135,7 @@ OFT has two modes of operation:
 
 In this live demonstration we will focus mostly on the tracer since this is the core functionality.
 
-While the converter is undoubtedly useful, it simply converts all its inputs into a specific requirements interchange format.
+While the converter is undoubtedly useful, it simply converts all its inputs into a other requirements formats.
 
 ### Tracing OFT With Itself
 
@@ -152,7 +151,7 @@ If there are no errors, the trace comes back with only a summary in the default 
 
 ### Finding Errors in the Tracing Chain
 
-Let's intentionally brake the tracing chain.
+Let's intentionally break the tracing chain.
 
 We will increment the version number of the system requirement we saw earlier. Now the lower level requirements do not cover the system requirement anymore, so we expect OFT to complain about this.
 
@@ -284,6 +283,4 @@ You can find documentation about OpenFastTrace on GitHub:
 
 * [OpenFastTrace project page](https://github.com/itsallcode/openfasttrace)
 * [Contributing to OFT](https://github.com/itsallcode/openfasttrace/CONTRIBUTING.md)
-
-Handbook is work in progress (at the time of writing this script 2018-05-20):
-* [User guide](https://github.com/itsallcode/openfasttrace/blob/story/%23111-Add_handbook/doc/user_guide.md)
+* [User guide](https://github.com/itsallcode/openfasttrace/blob/develop/doc/user_guide.md)
