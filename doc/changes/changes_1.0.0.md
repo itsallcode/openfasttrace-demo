@@ -1,4 +1,4 @@
-# OpenFastTrace Demo 1.0.0
+# OpenFastTrace Demo 1.0.0 - 2024-01-30
 
 In this release we added a [20-minute presentation](../../OpenFastTrace_in_20_minutes.odp) to the OFT demo.
 
