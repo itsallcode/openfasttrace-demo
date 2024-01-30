@@ -12,3 +12,4 @@ We prepared "screenplays" for you that help you get across the important points 
 
 * [Elevator pitch](oft-elevator-pitch.md) (3 min)
 * [Medium live demonstraction](oft-live-demo-medium.md) (1 h)
+* [OpenFastTrace in 20 minutes (presentation)](OpenFastTrace_in_20_minutes.odp)
