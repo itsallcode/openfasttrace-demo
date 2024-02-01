@@ -8,7 +8,7 @@ The following software is needed to prepare and run this live demonstration
 
 * bash
 * maven
-* Java 11 JDK (or newer)
+* Java 11 JDK (or newer, 17 or later recommended)
 * GNU grep
 * GNU sort
 * GNU sed
@@ -18,7 +18,9 @@ The following software is needed to prepare and run this live demonstration
 
 #### On Debian / Ubuntu
 
-The following was tested on Ubuntu 22.04 server LTS (to use a small image), but should run on other comparable setups too.
+The following was tested on Ubuntu 22.04 Server LTS (to use a small image), but should run on other comparable setups too.
+
+While OFT still works with Java 11, at the time of this writing 11 is almost at its end-of-live, therefore the demo uses Java 17.
 
 ```bash
 sudo apt install bash coreutils grep maven openjdk-17-jdk vim libxml2-utils
@@ -62,7 +64,7 @@ The following sections contain a suggestion of what you can tell people interest
 
 ### What is OFT?
 
-OpenFastTrace is a requirement tracing suite. Simply put, requirement tracing makes sure that you don't forget stuff in your software project. That means that if you use OFT, you will not run into a situation where you have to explain to your customers why you forgot to implement a feature. 
+OpenFastTrace is a requirement tracing suite. Simply put, requirement tracing makes sure that you don't forget stuff in your software project. That means that if you use OFT, you will not run into a situation where you have to explain to your customers why you forgot to implement a feature.
 
 On the other hand OFT will tell you if there is code in your project where the original requirement has since been rejected, allowing you to clean up your code base and thus keep it maintainable and more secure.
 
@@ -94,7 +96,7 @@ grep -B 1 -A 33 'req~specification-item~' doc/spec/system_requirements.md
 
 You see an excerpt of a specification document written in Markdown. More precisely you see a requirement with a title, a requirement ID and a description.
 
-Incidentally I picked a the requirement that defines a "Specification Item".
+Incidentally I picked the requirement that defines a "Specification Item".
 
 *(Go through the fields and explain them shortly to your audience.)*
 
@@ -150,7 +152,7 @@ Of course, we do this with OpenFastTrace. So lets run a trace over our own sourc
 oft trace doc/spec $(find . -name java)
 ```
 
-The command above tells OFT to trace all requirement for the files in `doc/spec` plus all java files it can find in the project. 
+The command above tells OFT to trace all requirement for the files in `doc/spec` and all `java` directories in the project. 
 
 If there are no errors, the trace comes back with only a summary in the default verbosity level.
 
@@ -223,7 +225,7 @@ Now the problem is pushed down a level from the design to the implementation as 
 > ![Broken links to implementation and test](doc/live-demo-medium/images/broken_links_to_code.png)
 
 ### Tracing Upward Only
-:q
+
 Let's assume you are responsible for OFT's design document and someone else has the job to implement what you designed.
 
 In this case you only care about if you covered the system requirements properly.
@@ -328,6 +330,4 @@ You can find documentation about OpenFastTrace on GitHub:
 
 * [OpenFastTrace project page](https://github.com/itsallcode/openfasttrace)
 * [Contributing to OFT](https://github.com/itsallcode/openfasttrace/CONTRIBUTING.md)
-
-Handbook is work in progress (at the time of writing this script 2018-05-20):
-* [User guide](https://github.com/itsallcode/openfasttrace/blob/story/%23111-Add_handbook/doc/user_guide.md)
+* [User guide](https://github.com/itsallcode/openfasttrace/blob/main/doc/user_guide.md)
