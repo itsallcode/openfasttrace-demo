@@ -18,3 +18,4 @@ OFT verifies the integrity of your product's requirement structure, thus avoidin
 
 * [Medium live demonstraction](oft-live-demo-medium.md) (1 h)
 * [OpenFastTrace presentation](OpenFastTrace_in_20_minutes.odp) (20 min)
+* [Introduction Video Script](oft-introduction-video-script.md) (3 min)
